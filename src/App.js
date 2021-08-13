@@ -13,29 +13,22 @@ function App() {
     FingerprintJS.load({ token: "KOvSOQ8tGOvM1XhMY7YG" })
       .then((fp) => fp.get())
       .then((result) => {
-        console.log(result);
         setVisitorID(result.visitorId);
       });
   });
 
   useEffect(() => {
-    console.log(visitorID);
     axios
       .get(
         `https://api.fpjs.io/visitors/${visitorID}?token=EoaDEifytrYzG7tca3df&limit=10000`
       )
       .then((res) => {
-        console.log(res.data);
         setFpInfo(res.data.visits);
       })
       .catch((err) => {
         console.log(err);
       });
   }, [visitorID]);
-
-  useEffect(() => {
-    console.log(fpInfo);
-  }, [fpInfo]);
 
   const columns = [
     {
