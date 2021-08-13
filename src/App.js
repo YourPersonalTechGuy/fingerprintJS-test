@@ -1,30 +1,46 @@
-import logo from "./logo.svg";
 import "./App.css";
-import { Button } from "antd";
-import FingerprintJS from '@fingerprintjs/fingerprintjs-pro'
+import { Table } from "antd";
+import FingerprintJS from "@fingerprintjs/fingerprintjs-pro";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 function App() {
+  let [visitorID, setVisitorID] = useState(null);
+  let [fpInfo, setFpInfo] = useState(null);
 
-  FingerprintJS.load({token: 'vRAfqZN2JkpjoXL6tAaM'})
-  .then(fp => fp.get())
-  .then(result => console.log(result.visitorId))
+  FingerprintJS.load({ token: "vRAfqZN2JkpjoXL6tAaM" })
+    .then((fp) => fp.get())
+    .then((result) => {
+      console.log(result);
+      setVisitorID(result.visitorId);
+    });
+
+  const columns = [
+    {
+      title: "Description",
+      dataIndex: "desc",
+      key: "desc",
+      ellipsis: true,
+      fixed: "top",
+    },
+    {
+      title: "City",
+      dataIndex: "city",
+      key: "city",
+      align: "left",
+      fixed: "top",
+    },
+    {
+      title: "State",
+      dataIndex: "state",
+      key: "state",
+      fixed: "top",
+    },
+  ];
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Table columns={columns} dataSource={fpInfo} />
     </div>
   );
 }
