@@ -1,8 +1,8 @@
 import "./App.css";
 import { Table } from "antd";
 import FingerprintJS from "@fingerprintjs/fingerprintjs-pro";
-import axios from "axios";
-import { useEffect, useState } from "react";
+// import axios from "axios";
+import { useState } from "react";
 
 function App() {
   let [visitorID, setVisitorID] = useState(null);
@@ -13,6 +13,8 @@ function App() {
     .then((result) => {
       console.log(result);
       setVisitorID(result.visitorId);
+      setFpInfo(null);
+      console.log(visitorID);
     });
 
   const columns = [
