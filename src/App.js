@@ -22,7 +22,7 @@ function App() {
     console.log(visitorID);
     axios
       .get(
-        `https://api.fpjs.io/visitors/${visitorID}?token=EoaDEifytrYzG7tca3df`
+        `https://api.fpjs.io/visitors/${visitorID}?token=EoaDEifytrYzG7tca3df&limit=10000`
       )
       .then((res) => {
         console.log(res.data);
