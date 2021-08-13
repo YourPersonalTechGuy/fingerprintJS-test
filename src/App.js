@@ -39,6 +39,11 @@ function App() {
 
   const columns = [
     {
+      title: "URL",
+      dataIndex: "url",
+      fixed: "top",
+    },
+    {
       title: "RequestID",
       dataIndex: "requestId",
       fixed: "top",
