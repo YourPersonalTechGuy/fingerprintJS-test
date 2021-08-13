@@ -118,7 +118,7 @@ function App() {
       <Table
         columns={columns}
         dataSource={fpInfo}
-        key={"requestId"}
+        rowKey={"requestId"}
         pagination={{
           pageSize: 20,
           position: ["bottomCenter"],
