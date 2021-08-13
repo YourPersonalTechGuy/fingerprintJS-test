@@ -117,27 +117,23 @@ function App() {
         return `${data.timezone}`;
       },
     },
-    {
-      title: "IP",
-      dataIndex: "ip",
-      fixed: "top",
-    },
   ];
 
   return (
     <div className="App">
       <h1>Your ID is: {visitorID}</h1>
-      <Table 
-      columns={columns}
-      dataSource={fpInfo} 
-      key={"requestId"} 
-      pagination={{
-        position: ['bottomCenter'],
-        total: fpInfo ? fpInfo.length : 0,
-        showTotal(total, range) {
-          return `${range[0]}-${range[1]} of ${total} items`;
-        },
-      }} />
+      <Table
+        columns={columns}
+        dataSource={fpInfo}
+        key={"requestId"}
+        pagination={{
+          position: ["bottomCenter"],
+          total: fpInfo ? fpInfo.length : 0,
+          showTotal(total, range) {
+            return `${range[0]}-${range[1]} of ${total} items`;
+          },
+        }}
+      />
     </div>
   );
 }
