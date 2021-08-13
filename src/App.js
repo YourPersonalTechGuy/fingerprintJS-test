@@ -127,6 +127,7 @@ function App() {
         dataSource={fpInfo}
         key={"requestId"}
         pagination={{
+          pageSize: 20,
           position: ["bottomCenter"],
           total: fpInfo ? fpInfo.length : 0,
           showTotal(total, range) {
